@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`user renders user data 1`] = `ReactWrapper {}`;
-
-exports[`user renders user data 2`] = `
+exports[`user renders user data 1`] = `
 "<details>
   <summary>Joni Baez</summary><strong>32</strong> years old<br>lives in 123, Charming Avenue
 </details>"

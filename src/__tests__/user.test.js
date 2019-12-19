@@ -42,13 +42,6 @@ describe("user", () => {
 
         // Use the asynchronous version of act to apply resolved promises
         await act(async () => {
-            snapshot.update();
-        });
-
-        expect(snapshot).toMatchSnapshot();
-
-        // Use the asynchronous version of act to apply resolved promises
-        await act(async () => {
             render(<User id="123" />, container);
         });
 
