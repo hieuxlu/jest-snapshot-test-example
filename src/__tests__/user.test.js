@@ -15,10 +15,9 @@ describe("user", () => {
     };
 
     beforeEach(() => {
-        // setup a DOM element as a render target
-        container = document.createElement("div");
-        document.body.appendChild(container);
-
+        // // setup a DOM element as a render target
+        // container = document.createElement("div");
+        // document.body.appendChild(container);
 
         jest.spyOn(global, "fetch").mockImplementation(() =>
             Promise.resolve({
@@ -28,38 +27,35 @@ describe("user", () => {
     });
 
     afterEach(() => {
-        // cleanup on exiting
-        unmountComponentAtNode(container);
-        container.remove();
-        container = null;
+        // // cleanup on exiting
+        // unmountComponentAtNode(container);
+        // container.remove();
+        // container = null;
 
         // remove the mock to ensure tests are completely isolated
         global.fetch.mockRestore();
     });
 
-    it("renders user data", async () => {
-        const snapshot = mount(<User id="123" />);
+    // it("renders user data", async () => {
+    //     // Use the asynchronous version of act to apply resolved promises
+    //     await act(async () => {
+    //         render(<User id="123" />, container);
+    //     });
 
-        // Use the asynchronous version of act to apply resolved promises
-        await act(async () => {
-            render(<User id="123" />, container);
-        });
+    //     expect(pretty(container.innerHTML)).toMatchSnapshot();
 
-        expect(pretty(container.innerHTML)).toMatchSnapshot();
-
-        expect(container.querySelector("summary").textContent).toBe(fakeUser.name);
-        expect(container.querySelector("strong").textContent).toBe(fakeUser.age);
-        expect(container.textContent).toContain(fakeUser.address);
-    });
+    //     expect(container.querySelector("summary").textContent).toBe(fakeUser.name);
+    //     expect(container.querySelector("strong").textContent).toBe(fakeUser.age);
+    //     expect(container.textContent).toContain(fakeUser.address);
+    // });
 
     it("renders user data using enzyme", async () => {
-        const snapshot = render(<User id="123" />);
+        // https://stackoverflow.com/questions/57006369/testing-asynchronous-useeffect
+        const wrapper = await mount(<User id="123" />);
 
         // Use the asynchronous version of act to apply resolved promises
-        await act(async () => {
-            snapshot.update();
-        });
-
-        expect(snapshot).toMatchSnapshot();
+        await act(async () => {});
+        
+        expect(wrapper.update()).toMatchSnapshot();
     });
 });

@@ -1,9 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`user renders user data 1`] = `
-"<details>
-  <summary>Joni Baez</summary><strong>32</strong> years old<br>lives in 123, Charming Avenue
-</details>"
+exports[`user renders user data using enzyme 1`] = `
+<User
+  id="123"
+>
+  <details>
+    <summary>
+      Joni Baez
+    </summary>
+    <strong>
+      32
+    </strong>
+     years old
+    <br />
+    lives in 
+    123, Charming Avenue
+  </details>
+</User>
 `;
-
-exports[`user renders user data using enzyme 1`] = `ReactWrapper {}`;

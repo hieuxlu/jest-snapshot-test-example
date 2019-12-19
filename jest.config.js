@@ -8,5 +8,8 @@ module.exports = {
     setupFiles: [
         "<rootDir>/jest.init.js"
     ],
+    snapshotSerializers: [
+        "enzyme-to-json/serializer"
+    ],
     // ...
 };
